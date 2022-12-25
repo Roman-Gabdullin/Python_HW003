@@ -11,10 +11,15 @@ min_num = int(input('Введите минимальный элемент спи
 max_num = int(input('Введите максимальный элемент списка: '))
 list = []
 for i in range(quant):
-    list.append(round(random.uniform(min_num,max_num+1),3))
+    amount = random.randint(0,3)
+    list.append(round(random.uniform(min_num,max_num+1),amount))
 print()
 print(f'Список: {list}')
-min = round(list[0]%1,3)
+for i in list:
+    print(round(i%1,3))
+    if i%1!=0:    
+        min = round(i%1,3)
+        break
 max = 0
 for i in list:
     if min > i%1 and i%1!=0: min = round(i%1,3)
